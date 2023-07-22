@@ -35,14 +35,15 @@ public class Order {
     @ElementCollection
     private List<String> items;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private OrderStatus orderStatus;
 
 
     public enum OrderStatus {
+    	PLACED,
         COOKING,
         ON_THE_WAY,
-        DELIVERED
+        DELIVERED, ASSIGNED
     }
 }
 

@@ -63,12 +63,12 @@ public class OrderServiceImpl implements OrderService{
 
 	        // Check if the order is already delivered
 	        if (order.getOrderStatus() == OrderStatus.DELIVERED) {
-	            throw new IllegalStateException("Cannot assign delivery partner to a delivered order.");
+	            throw new DeliveryException("Cannot assign delivery partner to a delivered order.");
 	        }
 
 	        // Check if the order is already assigned to another delivery partner
 	        if (order.getDeliveryPartner() != null) {
-	            throw new IllegalStateException("Order is already assigned to another delivery partner.");
+	            throw new DeliveryException("Order is already assigned to another delivery partner.");
 	        }
 
 	        order.setDeliveryPartner(deliveryPartner);
